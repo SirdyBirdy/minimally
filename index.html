@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minimally — Simple websites that get the job done</title>
+<meta name="description" content="Minimally designs and builds fast, simple websites and Shopify stores. Selected work and contact." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090b; --bg-2:#101216; --line:#22252c; --line-2:#33373f;
+  --fg:#f2f3f5; --fg-2:#a7abb4; --fg-3:#70747d;
+  --acc:#c6ff4f;
+  --pad:clamp(18px,6vw,80px);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Space Grotesk",system-ui,sans-serif;
+  font-size:clamp(1rem,.4vw + .94rem,1.06rem);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;line-height:.98}
+p{margin:0}a{color:inherit;text-decoration:none}
+.m{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
+.wrap{padding-inline:var(--pad);max-width:1200px;margin-inline:auto}
+:focus-visible{outline:2.5px solid var(--acc);outline-offset:4px}
+.skip{position:absolute;left:-9999px}.skip:focus{position:fixed;left:20px;top:14px;z-index:99;background:var(--acc);color:#000;padding:10px 16px;border-radius:6px}
+::selection{background:var(--acc);color:#000}
+button{font:inherit}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:60}
+.bar{display:flex;align-items:center;justify-content:space-between;height:58px;border-bottom:1px solid var(--line);background:rgba(8,9,11,.78);backdrop-filter:blur(16px);padding-inline:var(--pad)}
+.logo{font-weight:700;letter-spacing:-.06em;font-size:1.1rem;display:flex;align-items:center;gap:9px}
+.sq{width:11px;height:11px;background:var(--acc);border-radius:2px;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.links{display:none;gap:26px}
+.links a{font-size:.85rem;color:var(--fg-2);transition:color .25s}
+.links a:hover{color:var(--fg)}
+@media(min-width:700px){.links{display:flex}.bar{height:72px}}
+
+main{padding-top:58px}
+@media(min-width:700px){main{padding-top:72px}}
+
+/* hero */
+.hero{min-height:min(86vh,780px);display:flex;flex-direction:column;justify-content:flex-end;
+  padding-block:clamp(48px,10vw,100px) clamp(32px,5vw,56px);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.glow{position:absolute;width:min(140vw,1000px);aspect-ratio:1;border-radius:50%;right:-30%;top:-40%;pointer-events:none;
+  background:radial-gradient(circle,rgba(198,255,79,.14),transparent 62%);animation:float 14s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate3d(-6%,7%,0) scale(1.12)}}
+h1{font-size:clamp(2.2rem,10vw,5.6rem);letter-spacing:-.045em;text-wrap:balance;position:relative}
+.ln{display:block;overflow:hidden}
+.ln>span{display:block;transform:translateY(105%);animation:up 1s cubic-bezier(.16,.84,.24,1) forwards}
+.ln:nth-child(2)>span{animation-delay:.1s}.ln:nth-child(3)>span{animation-delay:.2s}
+@keyframes up{to{transform:none}}
+.hero p{color:var(--fg-2);max-width:52ch;margin-top:clamp(22px,4vw,32px);font-size:clamp(1rem,.9vw + .8rem,1.15rem)}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,4vw,36px)}
+.cta-b{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:#0a0b0c;border:1px solid var(--acc);border-radius:999px;padding:14px 24px;font:inherit;font-weight:600;font-size:.92rem;transition:transform .3s,filter .3s}
+.cta-b:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);color:var(--fg);border-radius:999px;padding:14px 24px;font-size:.92rem;font-weight:500;transition:background .3s,border-color .3s}
+.ghost:hover{background:var(--bg-2);border-color:var(--fg-3)}
+
+section{padding-block:clamp(48px,8vw,100px)}
+.head{padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:clamp(28px,4vw,40px)}
+h2{font-size:clamp(1.6rem,5vw,2.6rem)}
+
+/* work marquee */
+.marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mtrack{display:flex;gap:clamp(28px,5vw,56px);width:max-content;animation:scroll 26s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.mtrack span{font-size:clamp(1.6rem,6vw,3.4rem);font-weight:700;letter-spacing:-.03em;color:var(--fg-2);white-space:nowrap}
+.mtrack span:nth-child(odd){color:var(--fg)}
+.work-note{color:var(--fg-2);margin-top:clamp(20px,4vw,28px);max-width:52ch;font-size:.95rem}
+
+/* contact / cta */
+.cta{border:1px solid var(--line);border-radius:20px;background:linear-gradient(160deg,var(--bg-2),var(--bg));padding:clamp(28px,6vw,64px);position:relative;overflow:hidden}
+.cta h2{font-size:clamp(1.9rem,7vw,3.4rem);max-width:18ch}
+.cta p{color:var(--fg-2);max-width:44ch;margin-top:16px}
+.contact-links{display:grid;gap:10px;margin-top:clamp(24px,4vw,32px)}
+.contact-links a{font-size:clamp(1.1rem,3vw,1.4rem);font-weight:600;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:8px;width:fit-content}
+.contact-links a:hover{color:var(--acc)}
+
+footer{border-top:1px solid var(--line);margin-top:clamp(36px,6vw,64px);padding-block:24px 100px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media(min-width:700px){footer{padding-block:24px 40px}}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,.84,.24,1),transform .8s cubic-bezier(.16,.84,.24,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv,.ln>span{opacity:1;transform:none;transition:none;animation:none}.sq,.glow,.mtrack{animation:none}}
+
+/* ---------- music player ---------- */
+#player{position:fixed;right:clamp(12px,4vw,24px);bottom:clamp(12px,4vw,24px);z-index:80;
+  font-family:"Space Grotesk",sans-serif;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+#playerCard{width:min(84vw,300px);background:var(--bg-2);border:1px solid var(--line-2);border-radius:16px;
+  padding:16px;box-shadow:0 20px 50px rgba(0,0,0,.5);
+  transform-origin:bottom right;transform:scale(.9) translateY(8px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.16,.84,.24,1),opacity .3s}
+#player[data-open="true"] #playerCard{transform:none;opacity:1;pointer-events:auto}
+.pc-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pc-title{overflow:hidden;flex:1;min-width:0}
+.pc-title strong{display:block;font-size:.92rem;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-title span{display:block;font-size:.72rem;color:var(--fg-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eq{display:flex;align-items:flex-end;gap:2px;height:16px;flex-shrink:0}
+.eq i{width:3px;background:var(--acc);border-radius:2px;height:4px;animation:none}
+#player[data-playing="true"] .eq i{animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+.bar-track{height:4px;background:var(--line-2);border-radius:99px;margin:14px 0 10px;cursor:pointer;position:relative}
+.bar-fill{height:100%;width:0%;background:var(--acc);border-radius:99px}
+.pc-controls{display:flex;align-items:center;justify-content:center;gap:18px}
+.pc-controls button{background:none;border:none;color:var(--fg);cursor:pointer;padding:6px;display:flex}
+.pc-controls button:hover{color:var(--acc)}
+.pc-controls svg{width:20px;height:20px}
+#playToggle{width:44px;height:44px;border-radius:50%;background:var(--acc);color:#08090b;align-items:center;justify-content:center}
+#playToggle:hover{color:#08090b;filter:brightness(1.08)}
+#playToggle svg{width:18px;height:18px}
+.pc-list{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);max-height:130px;overflow-y:auto}
+.pc-list button{display:block;width:100%;text-align:left;background:none;border:none;color:var(--fg-2);padding:7px 4px;border-radius:6px;font-size:.82rem;cursor:pointer}
+.pc-list button:hover{background:var(--line);color:var(--fg)}
+.pc-list button[aria-current="true"]{color:var(--acc)}
+#fab{width:56px;height:56px;border-radius:50%;background:var(--acc);border:none;color:#08090b;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(198,255,79,.25);transition:transform .3s}
+#fab:hover{transform:scale(1.06)}
+#fab svg{width:22px;height:22px}
+#fab .spin{animation:spin 3.2s linear infinite}
+#player[data-playing="false"] #fab .spin{animation-play-state:paused}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+<header>
+  <div class="bar">
+    <a class="logo" href="#top"><span class="sq" aria-hidden="true"></span>minimally</a>
+    <nav class="links" aria-label="Primary"><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero wrap">
+  <span class="glow" aria-hidden="true"></span>
+  <span class="m">Web design & Shopify · Est. 2019</span>
+  <h1>
+    <span class="ln"><span>We're Minimally.</span></span>
+    <span class="ln"><span>We make simple websites</span></span>
+    <span class="ln"><span>that get the job done.</span></span>
+  </h1>
+  <p>The attention span of the consumer has steadily declined. If they are on mobile, it comes down further. By choosing simplicity, we can create a website that captivates our audience, promotes our business effectively, and ultimately drives engagement.</p>
+  <div class="row">
+    <a class="cta-b" href="#contact">Reach out</a>
+  </div>
+</section>
+
+<section id="work" class="wrap">
+  <div class="head rv"><h2>Our Shopify websites</h2></div>
+</section>
+<div class="marquee wrap" aria-hidden="true">
+  <div class="mtrack" id="mtrack"></div>
+</div>
+<div class="wrap"><p class="work-note rv">A selection of Shopify stores and websites we've designed and built. Get in touch and we'll send the full list.</p></div>
+
+<section id="contact" class="wrap">
+  <div class="cta rv">
+    <h2>Tell us what you're launching.</h2>
+    <p>One message is enough to start. Include a link, a deadline, and what success looks like.</p>
+    <div class="contact-links">
+      <a href="tel:+918087601310">Phone — 80876 01310</a>
+      <a href="mailto:hello@minimally.in">Email — hello@minimally.in</a>
+    </div>
+  </div>
+  <footer>
+    <span class="m">© 2026 Minimally — All rights reserved</span>
+  </footer>
+</section>
+
+</main>
+
+<!-- funky floating music player -->
+<div id="player" data-open="false" data-playing="false">
+  <div id="playerCard" role="dialog" aria-label="Music player">
+    <div class="pc-top">
+      <div class="pc-title"><strong id="trackTitle">—</strong><span id="trackArtist">—</span></div>
+      <div class="eq" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+    <div class="bar-track" id="seek"><div class="bar-fill" id="seekFill"></div></div>
+    <div class="pc-controls">
+      <button id="prevBtn" aria-label="Previous track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM20 6v12l-8.5-6z"/></svg></button>
+      <button id="playToggle" aria-label="Play"><svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+      <button id="nextBtn" aria-label="Next track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM4 6v12l8.5-6z"/></svg></button>
+    </div>
+    <div class="pc-list" id="trackList"></div>
+  </div>
+  <button id="fab" aria-label="Open music player" aria-expanded="false">
+    <svg class="spin" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" fill="#08090b"/><circle cx="12" cy="12" r="9" fill="none" stroke="#08090b" stroke-width="1.4"/><circle cx="12" cy="12" r="2.4" fill="#08090b"/><path d="M12 3a9 9 0 019 9h-2a7 7 0 00-7-7z" fill="currentColor"/></svg>
+  </button>
+</div>
+<audio id="audio" preload="none"></audio>
+
+<script>
+/* ---- work marquee: EDIT this list with your real client names ---- */
+const clients = ["Mainstreet","IMWIP","Writing Wonders","Namaste Psychiatry","Hale & Co.","Fold Type"];
+document.getElementById('mtrack').innerHTML = [...clients, ...clients].map(c=>`<span>${c}</span>`).join('');
+
+/* ---- scroll reveal ---- */
+const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){e.target.style.transitionDelay=(Math.min(i,5)*60)+'ms';e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -6%'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---- music player ----
+  Drop royalty-free mp3 files into assets/tracks/ and list them here.
+  File names must match exactly (case-sensitive). Edit title/artist freely. */
+const tracks = [
+  { title:"Track 1 — add your title", artist:"Add artist name", src:"assets/tracks/track-1.mp3" },
+  { title:"Track 2 — add your title", artist:"Add artist name", src:"assets/tracks/track-2.mp3" },
+  { title:"Track 3 — add your title", artist:"Add artist name", src:"assets/tracks/track-3.mp3" }
+];
+
+const player=document.getElementById('player'), fab=document.getElementById('fab'),
+  audio=document.getElementById('audio'), playToggle=document.getElementById('playToggle'),
+  playIcon=document.getElementById('playIcon'), trackTitle=document.getElementById('trackTitle'),
+  trackArtist=document.getElementById('trackArtist'), seek=document.getElementById('seek'),
+  seekFill=document.getElementById('seekFill'), list=document.getElementById('trackList');
+
+let idx=0;
+
+const icons={play:'<path d="M8 5v14l11-7z"/>',pause:'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>'};
+
+function renderList(){
+  list.innerHTML=tracks.map((t,i)=>`<button data-i="${i}" aria-current="${i===idx}">${t.title}</button>`).join('');
+  list.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>load(+b.dataset.i,true)));
+}
+function load(i,autoplay){
+  idx=(i+tracks.length)%tracks.length;
+  const t=tracks[idx];
+  audio.src=t.src;
+  trackTitle.textContent=t.title;
+  trackArtist.textContent=t.artist;
+  list.querySelectorAll('button').forEach(b=>b.setAttribute('aria-current', +b.dataset.i===idx));
+  if(autoplay) audio.play().catch(()=>{});
+}
+function setPlaying(p){
+  player.dataset.playing=p;
+  playIcon.parentElement.innerHTML=p?icons.pause:icons.play;
+  playIcon.parentElement.setAttribute('id','playIcon');
+  playToggle.setAttribute('aria-label',p?'Pause':'Play');
+}
+fab.addEventListener('click',()=>{
+  const open=player.dataset.open!=='true';
+  player.dataset.open=open;
+  fab.setAttribute('aria-expanded',open);
+});
+playToggle.addEventListener('click',()=>{
+  if(!audio.src) load(0,true);
+  else if(audio.paused) audio.play().catch(()=>{});
+  else audio.pause();
+});
+document.getElementById('prevBtn').addEventListener('click',()=>load(idx-1,true));
+document.getElementById('nextBtn').addEventListener('click',()=>load(idx+1,true));
+audio.addEventListener('play',()=>setPlaying(true));
+audio.addEventListener('pause',()=>setPlaying(false));
+audio.addEventListener('ended',()=>load(idx+1,true));
+audio.addEventListener('timeupdate',()=>{
+  if(audio.duration) seekFill.style.width=(audio.currentTime/audio.duration*100)+'%';
+});
+seek.addEventListener('click',e=>{
+  if(!audio.duration) return;
+  const r=seek.getBoundingClientRect();
+  audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration;
+});
+renderList();
+</script>
+</body>
+</html>
