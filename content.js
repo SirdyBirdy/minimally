@@ -26,10 +26,11 @@ function previewSVG(accent, seed){
   return shapes[seed % shapes.length];
 }
 
-function renderWork(){
+function renderWork(filter){
   const list = document.getElementById('workList');
   if(!list) return;
-  list.innerHTML = portfolio.map((p,i)=>`
+  const items = filter && filter !== 'All' ? portfolio.filter(p => p.tag === filter) : portfolio;
+  list.innerHTML = items.map((p,i)=>`
     <li>
       <a href="${p.href}">
         <span class="m">${String(i+1).padStart(2,'0')}</span>
@@ -43,6 +44,22 @@ function renderWork(){
       </a>
     </li>
   `).join('');
+}
+
+function initFilter(){
+  const tabs = document.getElementById('filterTabs');
+  const list = document.getElementById('workList');
+  if(!tabs || !list) return;
+  tabs.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-filter]');
+    if(!btn) return;
+    tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    list.classList.add('fading');
+    setTimeout(() => {
+      renderWork(btn.dataset.filter);
+      list.classList.remove('fading');
+    }, 200);
+  });
 }
 
 /* ---- scroll reveal ---- */
@@ -134,7 +151,8 @@ function initPlayer(){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderWork();
+  renderWork('All');
+  initFilter();
   initReveal();
   initPlayer();
 });
