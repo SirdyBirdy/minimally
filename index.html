@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Minimally — Simple websites that get the job done</title>
 <meta name="description" content="Minimally designs and builds fast, simple websites and Shopify stores. Selected work and contact." />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,13 @@
     <nav class="links" aria-label="Primary"><a href="#work">Work</a><a href="#contact">Contact</a></nav>
   </div>
 </header>
+
+<!-- floating mobile nav island — same visual language as the sticky bar -->
+<nav class="island" aria-label="Primary mobile navigation">
+  <a href="#top" class="island-home" aria-label="Home"><span class="sq" aria-hidden="true"></span></a>
+  <a href="#work" data-section="work">Work</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</nav>
 
 <main id="top">
 

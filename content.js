@@ -150,9 +150,27 @@ function initPlayer(){
   renderList();
 }
 
+/* ---- mobile nav island: highlight current section ---- */
+function initIslandSpy(){
+  const links = document.querySelectorAll('.island a[data-section]');
+  const sections = ['work','contact'].map(id => document.getElementById(id)).filter(Boolean);
+  if(!links.length || !sections.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        links.forEach(l => l.removeAttribute('aria-current'));
+        const active = document.querySelector(`.island a[data-section="${entry.target.id}"]`);
+        if(active) active.setAttribute('aria-current','true');
+      }
+    });
+  }, { rootMargin:'-45% 0px -45% 0px' });
+  sections.forEach(s => io.observe(s));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderWork('All');
   initFilter();
   initReveal();
   initPlayer();
+  initIslandSpy();
 });
