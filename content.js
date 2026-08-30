@@ -2,28 +2,34 @@
    PORTFOLIO CONTENT
    Edit this array with your real Shopify/website clients.
    - name:   client / project name
-   - tag:    short label, e.g. "Shopify" or "Website"
+   - tag:    "Shopify" or "Website"
    - blurb:  one-line description (optional — leave "" to omit)
-   - href:   link to the live site or case study (use "#contact" as placeholder)
-   - accent: hex used to tint that item's preview swatch
+   - href:   link to the live site
+   - image:  filename in assets/images/ (jpeg). If missing, a plain
+             color swatch (accent) shows instead — nothing breaks.
+   - accent: hex used for the fallback swatch if the image is missing
    ========================================================= */
 const portfolio = [
-  { name:"Mainstreet",          tag:"Shopify", blurb:"Retail storefront, rebuilt for speed.",        href:"#contact", accent:"#c6ff4f" },
-  { name:"IMWIP",                tag:"Shopify", blurb:"Direct-to-consumer product launch.",           href:"#contact", accent:"#7fd7ff" },
-  { name:"Writing Wonders",      tag:"Website", blurb:"Editorial site with a simple checkout.",       href:"#contact", accent:"#ffb37f" },
-  { name:"Namaste Psychiatry",   tag:"Website", blurb:"Clinic booking, built mobile-first.",          href:"#contact", accent:"#c6ff4f" },
-  { name:"Hale & Co.",           tag:"Shopify", blurb:"",                                             href:"#contact", accent:"#ff9fd6" },
-  { name:"Fold Type",            tag:"Website", blurb:"",                                             href:"#contact", accent:"#7fd7ff" },
+  { name:"Mainstreet",            tag:"Shopify", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f" },
+  { name:"IMWIP",                  tag:"Shopify", blurb:"", href:"https://imwip.co.in",                 image:"imwip.jpeg",                 accent:"#7fd7ff" },
+  { name:"Cocoamelts",             tag:"Shopify", blurb:"", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
+  { name:"AZE Dubai",              tag:"Shopify", blurb:"", href:"https://azedubai.com",                image:"azedubai.jpeg",               accent:"#c6ff4f" },
+  { name:"Writing Wonders",        tag:"Shopify", blurb:"", href:"https://writingwonders.in",           image:"writingwonders.jpeg",         accent:"#7fd7ff" },
+  { name:"Aya",                    tag:"Shopify", blurb:"", href:"https://ayatextiles.com",             image:"aya.jpeg",                   accent:"#ff9fd6" },
+  { name:"Bombay Closet Cleanse",  tag:"Shopify", blurb:"", href:"https://bombayclosetcleanse.in",      image:"bombayclosetcleanse.jpeg",   accent:"#c6ff4f" },
+  { name:"Namaste Psychology",     tag:"Shopify", blurb:"", href:"https://namastepsychology.com",       image:"namastepsychology.jpeg",     accent:"#7fd7ff" },
+  { name:"Satgurus",               tag:"Shopify", blurb:"", href:"https://satgurus.com",                image:"satgurus.jpeg",               accent:"#ff9fd6" },
+  { name:"Dilation",               tag:"Shopify", blurb:"", href:"https://dilation.in",                 image:"dilation.jpeg",               accent:"#c6ff4f" },
+  { name:"The Bae Club",           tag:"Shopify", blurb:"", href:"https://thebaeclub.in",                image:"thebaeclub.jpeg",             accent:"#7fd7ff" },
+  { name:"Mala and Kinnary",       tag:"Shopify", blurb:"", href:"https://malaandkinnary.com",          image:"malaandkinnary.jpeg",         accent:"#ff9fd6" },
 ];
 
-/* abstract preview swatch — a few reusable geometric layouts, tinted per item */
-function previewSVG(accent, seed){
-  const shapes = [
-    `<rect width="100%" height="100%" fill="#101216"/><circle cx="30%" cy="45%" r="34" fill="${accent}" opacity=".85"/><rect x="55%" y="20%" width="34%" height="14" fill="${accent}" opacity=".35"/><rect x="55%" y="42%" width="24%" height="14" fill="${accent}" opacity=".2"/>`,
-    `<rect width="100%" height="100%" fill="#101216"/><rect x="12%" y="20%" width="76%" height="10" fill="${accent}" opacity=".8"/><rect x="12%" y="44%" width="50%" height="10" fill="${accent}" opacity=".4"/><circle cx="82%" cy="72%" r="22" fill="${accent}" opacity=".3"/>`,
-    `<rect width="100%" height="100%" fill="#101216"/><path d="M0 70 L40 30 L80 60 L120 20 L160 55" stroke="${accent}" stroke-width="6" fill="none" opacity=".7"/><circle cx="85%" cy="30%" r="16" fill="${accent}" opacity=".5"/>`,
-  ];
-  return shapes[seed % shapes.length];
+/* preview panel: real image if present, otherwise a plain color swatch */
+function previewMarkup(p){
+  return `<span class="prev" aria-hidden="true" style="background:${p.accent}22">
+    <img src="assets/images/${p.image}" alt="" loading="lazy"
+      onerror="this.parentElement.classList.add('img-fallback');this.remove()">
+  </span>`;
 }
 
 function renderWork(filter){
@@ -32,14 +38,14 @@ function renderWork(filter){
   const items = filter && filter !== 'All' ? portfolio.filter(p => p.tag === filter) : portfolio;
   list.innerHTML = items.map((p,i)=>`
     <li>
-      <a href="${p.href}">
+      <a href="${p.href}" target="_blank" rel="noopener">
         <span class="m">${String(i+1).padStart(2,'0')}</span>
         <span>
           <h3>${p.name}</h3>
           <div class="chips"><span class="pill">${p.tag}</span></div>
           ${p.blurb ? `<p class="d">${p.blurb}</p>` : ``}
         </span>
-        <span class="prev" aria-hidden="true"><svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">${previewSVG(p.accent,i)}</svg></span>
+        ${previewMarkup(p)}
         <span class="arrow" aria-hidden="true">↗</span>
       </a>
     </li>

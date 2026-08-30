@@ -10,14 +10,16 @@ style.css          → all styling
 content.js         → portfolio data, work-list rendering + linking,
                      scroll animations, and the music player
 assets/tracks/     → put your royalty-free MP3s here (see README inside)
+assets/images/     → put a JPEG thumbnail per client here (see README inside)
 ```
 No build step — open `index.html` directly, or serve the folder as-is.
 
 ## Before you deploy
-- Edit the `portfolio` array at the top of `content.js` with your real
-  clients: `name`, `tag` (e.g. "Shopify"/"Website"), an optional one-line
-  `blurb`, and the `href` to link each item to (live site or case study —
-  defaults to `#contact` as a placeholder).
+- The `portfolio` array at the top of `content.js` already has your real
+  Shopify clients and links. Add each client's image to `assets/images/`
+  (exact filenames are listed in that folder's README) — if an image is
+  missing, that item just shows a plain color swatch instead of breaking.
+- To add non-Shopify clients, add more entries with `tag: "Website"`.
 - Edit the `tracks` array in `content.js` to match the MP3 file names you add
   to `assets/tracks/`.
 - Update the phone/email in the contact section of `index.html` if needed.
