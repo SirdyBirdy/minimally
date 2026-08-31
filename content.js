@@ -1,15 +1,18 @@
 /* =========================================================
    PORTFOLIO CONTENT
    Edit this array with your real Shopify/website clients.
-   - name:      client / project name
-   - tag:       "Shopify" or "Website"
-   - industry:  short category, e.g. "Apparel", "Stationery"
-   - blurb:     one-line description (optional — leave "" to omit)
-   - href:      link to the live site
-   - image:     filename in assets/images/ (jpeg). If missing, a plain
-                color swatch (accent) shows instead — nothing breaks.
-   - accent:    hex used for the fallback swatch if the image is missing
-   - highlight: optional standout badge, e.g. "Featured on Shark Tank India"
+   - name:       client / project name
+   - tag:        "Shopify" or "Website"
+   - industry:   short category, e.g. "Apparel", "Stationery" (optional —
+                 leave "" if unknown, and the pill just won't show)
+   - blurb:      one-line description (optional — leave "" to omit)
+   - href:       link to the live site (use "#contact" if not live yet)
+   - comingSoon: true if the site isn't live — shows a "Coming soon" badge
+                 instead of opening the link in a new tab
+   - image:      filename in assets/images/ (jpeg). If missing, a plain
+                 color swatch (accent) shows instead — nothing breaks.
+   - accent:     hex used for the fallback swatch if the image is missing
+   - highlight:  optional standout badge, e.g. "Featured on Shark Tank India"
    ========================================================= */
 const portfolio = [
   { name:"Upliance",               tag:"Shopify", industry:"Smart Appliances", blurb:"", href:"https://upliance.ai",                  image:"upliance.jpeg",               accent:"#7fd7ff", highlight:"Featured on Shark Tank India" },
@@ -25,6 +28,15 @@ const portfolio = [
   { name:"Dilation",               tag:"Shopify", industry:"Apparel", blurb:"", href:"https://dilation.in",                 image:"dilation.jpeg",               accent:"#c6ff4f" },
   { name:"The Bae Club",           tag:"Shopify", industry:"Fashion", blurb:"", href:"https://thebaeclub.in",                image:"thebaeclub.jpeg",             accent:"#7fd7ff" },
   { name:"Mala and Kinnary",       tag:"Shopify", industry:"Bridal Wear", blurb:"", href:"https://malaandkinnary.com",          image:"malaandkinnary.jpeg",         accent:"#ff9fd6" },
+  { name:"Arrista",                tag:"Shopify", industry:"", blurb:"", href:"#contact", comingSoon:true,                    image:"arrista.jpeg",                accent:"#c6ff4f" },
+
+  { name:"Pohonch",                tag:"Website", industry:"", blurb:"", href:"https://pohonhcares.com",             image:"pohonch.jpeg",                accent:"#7fd7ff" },
+  { name:"Mindworks",              tag:"Website", industry:"Mental Health", blurb:"", href:"https://mindworkscounselling.com",    image:"mindworks.jpeg",              accent:"#ff9fd6" },
+  { name:"Venus Traders",          tag:"Website", industry:"Stationery", blurb:"", href:"#contact", comingSoon:true,    image:"venustraders.jpeg",           accent:"#c6ff4f" },
+  { name:"Kefiyo",                 tag:"Website", industry:"", blurb:"", href:"#contact", comingSoon:true,             image:"kefiyo.jpeg",                 accent:"#7fd7ff" },
+  { name:"Moi Soda",               tag:"Website", industry:"Beverages", blurb:"", href:"#contact", comingSoon:true,    image:"moisoda.jpeg",                accent:"#ff9fd6" },
+  { name:"GEMSL",                  tag:"Website", industry:"Energy", blurb:"", href:"https://gemsl.com",                   image:"gemsl.jpeg",                  accent:"#c6ff4f" },
+  { name:"CPL Energy",             tag:"Website", industry:"Energy", blurb:"", href:"https://cplenergy.com",               image:"cplenergy.jpeg",              accent:"#7fd7ff" },
 ];
 
 /* preview panel: real image if present, otherwise a plain color swatch */
@@ -41,12 +53,13 @@ function renderWork(filter){
   const items = filter && filter !== 'All' ? portfolio.filter(p => p.tag === filter) : portfolio;
   list.innerHTML = items.map((p,i)=>`
     <li>
-      <a href="${p.href}" target="_blank" rel="noopener">
+      <a href="${p.href}" ${p.comingSoon ? `` : `target="_blank" rel="noopener"`}>
         <span class="m">${String(i+1).padStart(2,'0')}</span>
         <span>
           <h3>${p.name}</h3>
           <div class="chips">
             <span class="pill">${p.tag}</span>
+            ${p.comingSoon ? `<span class="pill pill-soon">Coming soon</span>` : ``}
             ${p.industry ? `<span class="pill">${p.industry}</span>` : ``}
             ${p.highlight ? `<span class="pill pill-highlight">✦ ${p.highlight}</span>` : ``}
           </div>
