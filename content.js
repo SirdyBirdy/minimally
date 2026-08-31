@@ -18,7 +18,7 @@ const portfolio = [
   { name:"Upliance",               tag:"Shopify", industry:"Smart Appliances", blurb:"", href:"https://upliance.ai",                  image:"upliance.jpeg",               accent:"#7fd7ff", highlight:"Featured on Shark Tank India" },
   { name:"Mainstreet",            tag:"Shopify", industry:"Streetwear", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f", highlight:"Their first website — built when they were just starting out, grown multifold since" },
   { name:"IMWIP",                  tag:"Shopify", industry:"Apparel", blurb:"", href:"https://imwip.co.in",                 image:"imwip.jpeg",                 accent:"#7fd7ff" },
-  { name:"Cocoamelts",             tag:"Shopify", industry:"Chocolate", blurb:"", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
+  { name:"Cocoamelts",             tag:"Shopify", industry:"Chocolate", blurb:"Dubai based Chocolatier selling in India, Dubai and Australia", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
   { name:"AZE Dubai",              tag:"Shopify", industry:"Womenswear", blurb:"", href:"https://azedubai.com",                image:"azedubai.jpeg",               accent:"#c6ff4f" },
   { name:"Writing Wonders",        tag:"Shopify", industry:"Stationery", blurb:"", href:"https://writingwonders.in",           image:"writingwonders.jpeg",         accent:"#7fd7ff" },
   { name:"Aya",                    tag:"Shopify", industry:"Textiles", blurb:"", href:"https://ayatextiles.com",             image:"aya.jpeg",                   accent:"#ff9fd6" },
