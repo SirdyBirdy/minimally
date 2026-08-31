@@ -3,6 +3,7 @@
    Edit this array with your real Shopify/website clients.
    - name:      client / project name
    - tag:       "Shopify" or "Website"
+   - industry:  short category, e.g. "Apparel", "Stationery"
    - blurb:     one-line description (optional — leave "" to omit)
    - href:      link to the live site
    - image:     filename in assets/images/ (jpeg). If missing, a plain
@@ -11,19 +12,19 @@
    - highlight: optional standout badge, e.g. "Featured on Shark Tank India"
    ========================================================= */
 const portfolio = [
-  { name:"Upliance",               tag:"Shopify", blurb:"", href:"https://upliance.ai",                  image:"upliance.jpeg",               accent:"#7fd7ff", highlight:"Featured on Shark Tank India" },
-  { name:"Mainstreet",            tag:"Shopify", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f", highlight:"Their first website — built when they were just starting out, grown multifold since" },
-  { name:"IMWIP",                  tag:"Shopify", blurb:"", href:"https://imwip.co.in",                 image:"imwip.jpeg",                 accent:"#7fd7ff" },
-  { name:"Cocoamelts",             tag:"Shopify", blurb:"", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
-  { name:"AZE Dubai",              tag:"Shopify", blurb:"", href:"https://azedubai.com",                image:"azedubai.jpeg",               accent:"#c6ff4f" },
-  { name:"Writing Wonders",        tag:"Shopify", blurb:"", href:"https://writingwonders.in",           image:"writingwonders.jpeg",         accent:"#7fd7ff" },
-  { name:"Aya",                    tag:"Shopify", blurb:"", href:"https://ayatextiles.com",             image:"aya.jpeg",                   accent:"#ff9fd6" },
-  { name:"Bombay Closet Cleanse",  tag:"Shopify", blurb:"", href:"https://bombayclosetcleanse.in",      image:"bombayclosetcleanse.jpeg",   accent:"#c6ff4f", highlight:"Featured on Shark Tank India" },
-  { name:"Namaste Psychology",     tag:"Shopify", blurb:"", href:"https://namastepsychology.com",       image:"namastepsychology.jpeg",     accent:"#7fd7ff" },
-  { name:"Satgurus",               tag:"Shopify", blurb:"", href:"https://satgurus.com",                image:"satgurus.jpeg",               accent:"#ff9fd6" },
-  { name:"Dilation",               tag:"Shopify", blurb:"", href:"https://dilation.in",                 image:"dilation.jpeg",               accent:"#c6ff4f" },
-  { name:"The Bae Club",           tag:"Shopify", blurb:"", href:"https://thebaeclub.in",                image:"thebaeclub.jpeg",             accent:"#7fd7ff" },
-  { name:"Mala and Kinnary",       tag:"Shopify", blurb:"", href:"https://malaandkinnary.com",          image:"malaandkinnary.jpeg",         accent:"#ff9fd6" },
+  { name:"Upliance",               tag:"Shopify", industry:"Smart Appliances", blurb:"", href:"https://upliance.ai",                  image:"upliance.jpeg",               accent:"#7fd7ff", highlight:"Featured on Shark Tank India" },
+  { name:"Mainstreet",            tag:"Shopify", industry:"Streetwear", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f", highlight:"Their first website — built when they were just starting out, grown multifold since" },
+  { name:"IMWIP",                  tag:"Shopify", industry:"Apparel", blurb:"", href:"https://imwip.co.in",                 image:"imwip.jpeg",                 accent:"#7fd7ff" },
+  { name:"Cocoamelts",             tag:"Shopify", industry:"Chocolate", blurb:"", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
+  { name:"AZE Dubai",              tag:"Shopify", industry:"Womenswear", blurb:"", href:"https://azedubai.com",                image:"azedubai.jpeg",               accent:"#c6ff4f" },
+  { name:"Writing Wonders",        tag:"Shopify", industry:"Stationery", blurb:"", href:"https://writingwonders.in",           image:"writingwonders.jpeg",         accent:"#7fd7ff" },
+  { name:"Aya",                    tag:"Shopify", industry:"Textiles", blurb:"", href:"https://ayatextiles.com",             image:"aya.jpeg",                   accent:"#ff9fd6" },
+  { name:"Bombay Closet Cleanse",  tag:"Shopify", industry:"Apparel", blurb:"", href:"https://bombayclosetcleanse.in",      image:"bombayclosetcleanse.jpeg",   accent:"#c6ff4f", highlight:"Featured on Shark Tank India" },
+  { name:"Namaste Psychology",     tag:"Shopify", industry:"Mental Health", blurb:"", href:"https://namastepsychology.com",       image:"namastepsychology.jpeg",     accent:"#7fd7ff" },
+  { name:"Satgurus",               tag:"Shopify", industry:"Home Decor & Gifts", blurb:"", href:"https://satgurus.com",                image:"satgurus.jpeg",               accent:"#ff9fd6" },
+  { name:"Dilation",               tag:"Shopify", industry:"Apparel", blurb:"", href:"https://dilation.in",                 image:"dilation.jpeg",               accent:"#c6ff4f" },
+  { name:"The Bae Club",           tag:"Shopify", industry:"Fashion", blurb:"", href:"https://thebaeclub.in",                image:"thebaeclub.jpeg",             accent:"#7fd7ff" },
+  { name:"Mala and Kinnary",       tag:"Shopify", industry:"Bridal Wear", blurb:"", href:"https://malaandkinnary.com",          image:"malaandkinnary.jpeg",         accent:"#ff9fd6" },
 ];
 
 /* preview panel: real image if present, otherwise a plain color swatch */
@@ -46,6 +47,7 @@ function renderWork(filter){
           <h3>${p.name}</h3>
           <div class="chips">
             <span class="pill">${p.tag}</span>
+            ${p.industry ? `<span class="pill">${p.industry}</span>` : ``}
             ${p.highlight ? `<span class="pill pill-highlight">✦ ${p.highlight}</span>` : ``}
           </div>
           ${p.blurb ? `<p class="d">${p.blurb}</p>` : ``}
