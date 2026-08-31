@@ -1,22 +1,24 @@
 /* =========================================================
    PORTFOLIO CONTENT
    Edit this array with your real Shopify/website clients.
-   - name:   client / project name
-   - tag:    "Shopify" or "Website"
-   - blurb:  one-line description (optional — leave "" to omit)
-   - href:   link to the live site
-   - image:  filename in assets/images/ (jpeg). If missing, a plain
-             color swatch (accent) shows instead — nothing breaks.
-   - accent: hex used for the fallback swatch if the image is missing
+   - name:      client / project name
+   - tag:       "Shopify" or "Website"
+   - blurb:     one-line description (optional — leave "" to omit)
+   - href:      link to the live site
+   - image:     filename in assets/images/ (jpeg). If missing, a plain
+                color swatch (accent) shows instead — nothing breaks.
+   - accent:    hex used for the fallback swatch if the image is missing
+   - highlight: optional standout badge, e.g. "Featured on Shark Tank India"
    ========================================================= */
 const portfolio = [
-  { name:"Mainstreet",            tag:"Shopify", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f" },
+  { name:"Upliance",               tag:"Shopify", blurb:"", href:"https://upliance.ai",                  image:"upliance.jpeg",               accent:"#7fd7ff", highlight:"Featured on Shark Tank India" },
+  { name:"Mainstreet",            tag:"Shopify", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f", highlight:"Their first website — built when they were just starting out, grown multifold since" },
   { name:"IMWIP",                  tag:"Shopify", blurb:"", href:"https://imwip.co.in",                 image:"imwip.jpeg",                 accent:"#7fd7ff" },
   { name:"Cocoamelts",             tag:"Shopify", blurb:"", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
   { name:"AZE Dubai",              tag:"Shopify", blurb:"", href:"https://azedubai.com",                image:"azedubai.jpeg",               accent:"#c6ff4f" },
   { name:"Writing Wonders",        tag:"Shopify", blurb:"", href:"https://writingwonders.in",           image:"writingwonders.jpeg",         accent:"#7fd7ff" },
   { name:"Aya",                    tag:"Shopify", blurb:"", href:"https://ayatextiles.com",             image:"aya.jpeg",                   accent:"#ff9fd6" },
-  { name:"Bombay Closet Cleanse",  tag:"Shopify", blurb:"", href:"https://bombayclosetcleanse.in",      image:"bombayclosetcleanse.jpeg",   accent:"#c6ff4f" },
+  { name:"Bombay Closet Cleanse",  tag:"Shopify", blurb:"", href:"https://bombayclosetcleanse.in",      image:"bombayclosetcleanse.jpeg",   accent:"#c6ff4f", highlight:"Featured on Shark Tank India" },
   { name:"Namaste Psychology",     tag:"Shopify", blurb:"", href:"https://namastepsychology.com",       image:"namastepsychology.jpeg",     accent:"#7fd7ff" },
   { name:"Satgurus",               tag:"Shopify", blurb:"", href:"https://satgurus.com",                image:"satgurus.jpeg",               accent:"#ff9fd6" },
   { name:"Dilation",               tag:"Shopify", blurb:"", href:"https://dilation.in",                 image:"dilation.jpeg",               accent:"#c6ff4f" },
@@ -42,7 +44,10 @@ function renderWork(filter){
         <span class="m">${String(i+1).padStart(2,'0')}</span>
         <span>
           <h3>${p.name}</h3>
-          <div class="chips"><span class="pill">${p.tag}</span></div>
+          <div class="chips">
+            <span class="pill">${p.tag}</span>
+            ${p.highlight ? `<span class="pill pill-highlight">✦ ${p.highlight}</span>` : ``}
+          </div>
           ${p.blurb ? `<p class="d">${p.blurb}</p>` : ``}
         </span>
         ${previewMarkup(p)}
