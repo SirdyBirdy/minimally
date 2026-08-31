@@ -37,6 +37,7 @@ const portfolio = [
   { name:"Moi Soda",               tag:"Website", industry:"Beverages", blurb:"", href:"#contact", comingSoon:true,    image:"moisoda.jpeg",                accent:"#ff9fd6" },
   { name:"GEMSL",                  tag:"Website", industry:"Energy", blurb:"", href:"https://gemsl.com",                   image:"gemsl.jpeg",                  accent:"#c6ff4f" },
   { name:"CPL Energy",             tag:"Website", industry:"Energy", blurb:"", href:"https://cplenergy.com",               image:"cplenergy.jpeg",              accent:"#7fd7ff" },
+   { name:"The BPD Collective",             tag:"Website", industry:"Mental Health", blurb:"", href:"https://thebpdcollective.com",               image:"bpdcollective.jpeg",              accent:"#7fd7ff" },
 ];
 
 /* preview panel: real image if present, otherwise a plain color swatch */
