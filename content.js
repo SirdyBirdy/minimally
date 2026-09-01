@@ -107,9 +107,9 @@ function initReveal(){
    them here. File names must match exactly (case-sensitive).
    ========================================================= */
 const tracks = [
-  { title:"Track 1 — add your title", artist:"Add artist name", src:"assets/tracks/track-1.mp3" },
-  { title:"Track 2 — add your title", artist:"Add artist name", src:"assets/tracks/track-2.mp3" },
-  { title:"Track 3 — add your title", artist:"Add artist name", src:"assets/tracks/track-3.mp3" },
+  { title:"Div and Let Div", artist:"", src:"assets/tracks/track-1.mp3" },
+  { title:"Cache Me Outside", artist:"", src:"assets/tracks/track-2.mp3" },
+  { title:"404 Grooves Not Found", artist:"", src:"assets/tracks/track-3.mp3" },
 ];
 
 function initPlayer(){
