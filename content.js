@@ -31,7 +31,7 @@ const portfolio = [
   { name:"Mala and Kinnary",       tag:"Shopify", industry:"Bridal Wear", blurb:"", href:"https://malaandkinnary.com",          image:"malaandkinnary.jpeg",         accent:"#ff9fd6" },
   { name:"Arrista",                tag:"Shopify", industry:"", blurb:"", href:"#contact", comingSoon:true,                    image:"arrista.jpeg",                accent:"#c6ff4f" },
 
-  { name:"Pohonch",                tag:"Website", industry:"", blurb:"", href:"https://pohonhcares.com",             image:"pohonch.jpeg",                accent:"#7fd7ff" },
+  { name:"Pohonch",                tag:"Website", industry:"", blurb:"", href:"https://pohonchcares.com",             image:"pohonch.jpeg",                accent:"#7fd7ff" },
   { name:"Mindworks",              tag:"Website", industry:"Mental Health", blurb:"", href:"https://mindworkscounselling.com",    image:"mindworks.jpeg",              accent:"#ff9fd6" },
   { name:"Venus Traders",          tag:"Website", industry:"Stationery", blurb:"", href:"#contact", comingSoon:true,    image:"venustraders.jpeg",           accent:"#c6ff4f" },
   { name:"Kefiyo",                 tag:"Website", industry:"", blurb:"", href:"#contact", comingSoon:true,             image:"kefiyo.jpeg",                 accent:"#7fd7ff" },
