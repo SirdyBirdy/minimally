@@ -98,6 +98,7 @@ h2{font-size:clamp(1.6rem,5vw,2.6rem)}
 /* work index — hover-reveal list, ported from the mockup */
 .pill{border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;font-family:"IBM Plex Mono";font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-2)}
 .pill-highlight{border-color:var(--acc);color:var(--acc);letter-spacing:.04em;text-transform:none;font-weight:600}
+.pill-soon{border-style:dashed;border-color:var(--fg-3);color:var(--fg-3)}
 .idx{list-style:none;margin:0;padding:0}
 .idx li{border-bottom:1px solid var(--line)}
 .idx li:first-child{border-top:1px solid var(--line)}

@@ -9,16 +9,25 @@ index.html        → markup only
 style.css          → all styling
 content.js         → portfolio data, work-list rendering + linking,
                      scroll animations, and the music player
+favicon.svg        → vector favicon (what modern browsers use)
+favicon.ico        → fallback favicon (older browsers)
+apple-touch-icon.png, favicon-192.png, favicon-512.png → other icon sizes
 assets/tracks/     → put your royalty-free MP3s here (see README inside)
-assets/images/     → put a JPEG thumbnail per client here (see README inside)
+assets/images/     → client thumbnails + og-image.jpg (social share preview)
 ```
 No build step — open `index.html` directly, or serve the folder as-is.
 
 ## Before you deploy
+- **Update the domain placeholder.** The `<head>` of `index.html` has
+  `https://minimally.in/` hardcoded in the canonical link and the Open
+  Graph / Twitter image URLs — replace this with your actual live domain
+  (or your Netlify subdomain if you haven't attached a custom domain yet),
+  otherwise link previews on WhatsApp/Twitter/etc. won't find the image.
 - The `portfolio` array at the top of `content.js` already has your real
-  Shopify clients and links. Add each client's image to `assets/images/`
-  (exact filenames are listed in that folder's README) — if an image is
-  missing, that item just shows a plain color swatch instead of breaking.
+  Shopify clients, links, and industry tags. Add each client's image to
+  `assets/images/` (exact filenames are listed in that folder's README) —
+  if an image is missing, that item just shows a plain color swatch instead
+  of breaking.
 - To add non-Shopify clients, add more entries with `tag: "Website"`.
 - Edit the `tracks` array in `content.js` to match the MP3 file names you add
   to `assets/tracks/`.
