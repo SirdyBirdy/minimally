@@ -16,6 +16,7 @@
    ========================================================= */
 const portfolio = [
   { name:"Upliance",               tag:"Shopify", industry:"Smart Appliances", blurb:"", href:"https://upliance.ai",                  image:"upliance.jpeg",               accent:"#7fd7ff", highlight:"Featured on Shark Tank India" },
+   { name:"Deep Impact",               tag:"Shopify", industry:"Fitness", blurb:"", href:"https://deepimpact.in",                  image:"deepimpact.jpeg",               accent:"#7fd7ff", },
   { name:"Mainstreet",            tag:"Shopify", industry:"Streetwear", blurb:"", href:"https://mainstreet.co.in",           image:"mainstreet.jpeg",           accent:"#c6ff4f", highlight:"Their first website — built when they were just starting out, grown multifold since" },
   { name:"IMWIP",                  tag:"Shopify", industry:"Apparel", blurb:"", href:"https://imwip.co.in",                 image:"imwip.jpeg",                 accent:"#7fd7ff" },
   { name:"Cocoamelts",             tag:"Shopify", industry:"Chocolate", blurb:"Dubai based Luxury Chocolatier selling across Dubai, Australia, and India", href:"https://cocoamelts.in",               image:"cocoamelts.jpeg",             accent:"#ff9fd6" },
